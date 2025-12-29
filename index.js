@@ -2,8 +2,8 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 
-// all variables defined in the env file will 
-// be available in the process.env variable
+// all variables defined in the env file will be available in the process.env variable
+// use .gitignore to include files that are not pushed to github 
 require('dotenv').config();
 
 // enable express receiving JSON
