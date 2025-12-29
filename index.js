@@ -1,13 +1,17 @@
 const express = require('express');
 const axios = require('axios');
 const app = express();
+const cors = require('cors');
 
 // all variables defined in the env file will be available in the process.env variable
-// use .gitignore to include files that are not pushed to github 
+// enter .env into the file .gitignore to prevent it from being pushed to github 
 require('dotenv').config();
 
 // enable express receiving JSON
 app.use(express.json());
+
+// enable CORS - Cross Origin Resources Sharing 
+app.use(cors());
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 
@@ -27,6 +31,7 @@ app.get('/goodbye', function (req, res) {
     res.send("Goodbye");
 });
 
+// foursquare.com search 
 app.get('/api/places/search', async function (req, res) {
     const query = req.query;
     const options = {
